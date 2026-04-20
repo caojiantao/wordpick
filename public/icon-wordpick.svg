@@ -1,0 +1,56 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="112" x2="864" y2="912" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E8E78"/>
+      <stop offset="1" stop-color="#0B5F72"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(284 218) rotate(38.6) scale(514 504)">
+      <stop stop-color="#8DE4C7" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#8DE4C7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="110" y="132" width="804" height="772" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="26"/>
+      <feGaussianBlur stdDeviation="36"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.012 0 0 0 0 0.179 0 0 0 0 0.224 0 0 0 0.24 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect x="64" y="64" width="896" height="896" rx="212" fill="url(#bg)"/>
+  <rect x="64" y="64" width="896" height="896" rx="212" fill="url(#glow)"/>
+
+  <circle cx="800" cy="250" r="108" fill="#87E2C1" fill-opacity="0.12"/>
+  <circle cx="234" cy="816" r="84" fill="#D8F5EA" fill-opacity="0.08"/>
+
+  <path d="M244 256L261.966 302.034L308 320L261.966 337.966L244 384L226.034 337.966L180 320L226.034 302.034L244 256Z" fill="#FFE29A"/>
+
+  <g filter="url(#shadow)">
+    <rect x="210" y="256" width="456" height="548" rx="56" transform="rotate(-9 210 256)" fill="#CDE9DE" fill-opacity="0.72"/>
+    <rect x="320" y="222" width="434" height="548" rx="56" transform="rotate(7 320 222)" fill="#FAE5B7" fill-opacity="0.86"/>
+
+    <rect x="252" y="192" width="520" height="640" rx="64" fill="#FFFDF5"/>
+    <rect x="252" y="192" width="520" height="640" rx="64" stroke="#E8E1CF" stroke-width="8"/>
+
+    <path d="M640 192H740V312L690 278L640 312V192Z" fill="#FF8B5E"/>
+
+    <rect x="322" y="286" width="132" height="132" rx="32" fill="#1E8E78"/>
+    <path d="M372 378L396 320L420 378H398L392 362H378L372 378ZM383 348H387L385 342L383 348Z" fill="#FFFDF5"/>
+    <rect x="486" y="302" width="196" height="30" rx="15" fill="#C9EBDD"/>
+    <rect x="486" y="350" width="148" height="24" rx="12" fill="#DDEFE7"/>
+
+    <circle cx="344" cy="492" r="18" fill="#FF8B5E"/>
+    <rect x="382" y="476" width="266" height="32" rx="16" fill="#1A6F67"/>
+
+    <circle cx="344" cy="582" r="18" fill="#FFB554"/>
+    <rect x="382" y="566" width="214" height="32" rx="16" fill="#2E857C" fill-opacity="0.96"/>
+
+    <circle cx="344" cy="672" r="18" fill="#87DDBC"/>
+    <rect x="382" y="656" width="286" height="32" rx="16" fill="#5AA899"/>
+
+    <rect x="322" y="736" width="380" height="20" rx="10" fill="#E9E2D3"/>
+  </g>
+</svg>

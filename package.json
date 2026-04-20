@@ -1,0 +1,25 @@
+{
+  "name": "wordpick",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:data": "python3 scripts/build_lexicon.py",
+    "sync-data": "mkdir -p public/data/lists && cp data/lexicon.json public/data/ && cp data/lists/*.json public/data/lists/",
+    "predev": "npm run sync-data",
+    "dev": "vite",
+    "prebuild": "npm run sync-data",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vant": "^4.9.21",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "unplugin-vue-components": "^28.4.1",
+    "vite": "^6.2.0"
+  }
+}
