@@ -26,6 +26,8 @@ jobs:
 
       - name: 🏗️ Build app
         run: npm run build
+        env:
+          VITE_WP_BASE_URL: http://api.caojiantao.site:1024
 
       - name: 📂 Sync files
         uses: milanmk/actions-file-deployer@master
