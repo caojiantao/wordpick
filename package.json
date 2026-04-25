@@ -4,11 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:data": "python3 scripts/build_lexicon.py",
-    "sync-data": "mkdir -p public/data/lists && cp data/lexicon.json public/data/ && cp data/lists/*.json public/data/lists/",
-    "predev": "npm run sync-data",
     "dev": "vite",
-    "prebuild": "npm run sync-data",
     "build": "vite build",
     "preview": "vite preview"
   },

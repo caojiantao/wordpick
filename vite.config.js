@@ -10,4 +10,12 @@ export default defineConfig({
       resolvers: [VantResolver()],
     }),
   ],
+  server: {
+    proxy: {
+      '/wp': {
+        target: process.env.VITE_WP_BASE_URL || 'http://api.caojiantao.site:1024',
+        changeOrigin: true,
+      },
+    },
+  },
 });
