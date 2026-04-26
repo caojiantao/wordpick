@@ -51,7 +51,18 @@ watch(
         :title="ch.name"
         is-link
         @click="router.push({ name: 'word-cards', params: { chapterId: ch.id }, query: { title: ch.name } })"
-      />
+      >
+        <template #right-icon>
+          <van-button
+            size="mini"
+            plain
+            type="primary"
+            style="margin-right: 8px"
+            @click.stop="router.push({ name: 'review-chapter', params: { chapterId: ch.id }, query: { title: ch.name } })"
+          >复习</van-button>
+          <van-icon name="arrow" />
+        </template>
+      </van-cell>
     </van-cell-group>
   </div>
 </template>

@@ -5,28 +5,31 @@ import { showFailToast } from "vant";
 import { getWords } from "../services/wpApi.js";
 
 const props = defineProps({
-  chapterId: { type: String, required: true },
+  chapterId: { type: String, default: null },
+  initialIndex: { type: Number, default: 0 },
 });
 
 const router = useRouter();
 const route = useRoute();
 const loading = ref(true);
-const words = ref([]);
-const current = ref(0);
+const wordList = ref([]);
+const current = ref(props.initialIndex);
+const swipeRef = ref(null);
 
 const navTitle = computed(() => {
-  if (loading.value || !words.value.length) return route.query.title || "";
-  return `${current.value + 1} / ${words.value.length}`;
+  if (loading.value || !wordList.value.length) return route.query.title || "";
+  return `${current.value + 1} / ${wordList.value.length}`;
 });
 
 watch(
   () => props.chapterId,
   async (id) => {
+    if (!id) return;
     loading.value = true;
-    words.value = [];
+    wordList.value = [];
     current.value = 0;
     try {
-      words.value = await getWords(id);
+      wordList.value = await getWords(id);
     } catch (e) {
       showFailToast(e.message || "加载失败");
     } finally {
@@ -51,14 +54,16 @@ function showPhone(s) {
       @click-left="router.back()"
     />
     <van-loading v-if="loading" vertical class="loading">加载中…</van-loading>
-    <van-empty v-else-if="!words.length" description="暂无词条" />
+    <van-empty v-else-if="!wordList.length" description="暂无词条" />
     <van-swipe
       v-else
+      ref="swipeRef"
       :loop="false"
+      :initial-swipe="initialIndex"
       class="swipe"
       @change="current = $event"
     >
-      <van-swipe-item v-for="word in words" :key="word.id" class="swipe-item">
+      <van-swipe-item v-for="word in wordList" :key="word.id" class="swipe-item">
         <div class="card">
           <div class="head">
             <h1 class="lemma">{{ word.word }}</h1>
@@ -117,7 +122,7 @@ function showPhone(s) {
   overflow-y: auto;
 }
 .card {
-  padding-bottom: 32px;
+  padding-bottom: 16px;
 }
 .head {
   padding: 24px 16px 8px;

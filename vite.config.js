@@ -11,6 +11,7 @@ export default defineConfig({
     }),
   ],
   server: {
+    allowedHosts: ['wordpick.caojiantao.site'],
     proxy: {
       '/wp': {
         target: process.env.VITE_WP_BASE_URL || 'http://api.caojiantao.site:1024',
