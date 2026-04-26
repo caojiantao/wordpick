@@ -44,25 +44,14 @@ watch(
     />
     <van-loading v-if="loading" vertical class="loading">加载中…</van-loading>
     <van-empty v-else-if="!chapters.length" description="暂无章节" />
-    <van-cell-group v-else inset>
+    <van-cell-group v-else class="list">
       <van-cell
         v-for="ch in chapters"
         :key="ch.id"
         :title="ch.name"
         is-link
-        @click="router.push({ name: 'word-cards', params: { chapterId: ch.id }, query: { title: ch.name } })"
-      >
-        <template #right-icon>
-          <van-button
-            size="mini"
-            plain
-            type="primary"
-            style="margin-right: 8px"
-            @click.stop="router.push({ name: 'review-chapter', params: { chapterId: ch.id }, query: { title: ch.name } })"
-          >复习</van-button>
-          <van-icon name="arrow" />
-        </template>
-      </van-cell>
+        @click="router.push({ name: 'word-learn', params: { chapterId: ch.id }, query: { title: ch.name } })"
+      />
     </van-cell-group>
   </div>
 </template>
@@ -74,5 +63,8 @@ watch(
 }
 .loading {
   padding: 48px 0;
+}
+.list {
+  margin-top: 0;
 }
 </style>

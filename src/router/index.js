@@ -15,27 +15,10 @@ const router = createRouter({
       props: true,
     },
     {
-      path: "/cards/:chapterId",
-      name: "word-cards",
-      component: () => import("../views/WordCardsView.vue"),
+      path: "/learn/:chapterId",
+      name: "word-learn",
+      component: () => import("../views/WordLearnView.vue"),
       props: true,
-    },
-    {
-      path: "/review/chapter/:chapterId",
-      name: "review-chapter",
-      component: () => import("../views/ReviewView.vue"),
-      props: true,
-    },
-    {
-      path: "/review/wordbook/:categoryId",
-      name: "review-wordbook",
-      component: () => import("../views/ReviewView.vue"),
-      props: true,
-    },
-    {
-      path: "/wordbook",
-      name: "word-book",
-      component: () => import("../views/WordBookView.vue"),
     },
   ],
 });
